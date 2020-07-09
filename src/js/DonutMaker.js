@@ -63,4 +63,19 @@ class DonutMaker {
             this.clickDonut();
         }
     }
+
+    buyDonutMultiplier() {
+        this.donutMultiplierCount++;
+        this.subtractDonutMultiplierCostFromDonutCount();
+        this.increaseDonutMultiplierCost();
+
+    }
+
+    subtractDonutMultiplierCostFromDonutCount(){
+        this.donutCount -= Math.round(this.donutMultiplierCost);
+    }
+
+    increaseDonutMultiplierCost() {
+        this.donutMultiplierCost += this.donutMultiplierCost * 0.1;
+    }
 }
