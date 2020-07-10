@@ -8,7 +8,7 @@ class DonutMaker {
     }
 
     clickDonut() {
-        this.donutCount += 1;
+        this.donutCount += 1 * this.calculateDonutMultiplierValue();
     }
 
     getClickCount() {
@@ -77,5 +77,21 @@ class DonutMaker {
 
     increaseDonutMultiplierCost() {
         this.donutMultiplierCost += this.donutMultiplierCost * 0.1;
+    }
+
+    hasInsufficientDonutsToBuyDonutMultiplier() {
+        return this.donutCount < this.donutMultiplierCost;
+    }
+
+    checkDonutCountToBuyDonutMultiplier() {
+        if (this.hasInsufficientDonutsToBuyDonutMultiplier) {
+            throw new Error("Not enough donuts to purchase.")
+        } else {
+            this.buyDonutMultiplier;
+        }
+    }
+
+    calculateDonutMultiplierValue() {
+        return Math.pow(1.2, this.donutMultiplierCount);
     }
 }
