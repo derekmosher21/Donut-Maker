@@ -1,10 +1,5 @@
-const donutClicker = new DonutMaker(
-    donutCount,
-    autoClickerPrice,
-    autoClickerCount,
-    donutMultiplierCount,
-    donutMultiplierPrice
-  );
+const donutClicker = new DonutMaker();
+
 
   donut.addEventListener("click", () => {
     donutClicker.addDonut();
