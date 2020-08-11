@@ -1,14 +1,24 @@
 const donutClicker = new DonutMaker();
+setupDonutButton();
+updateDonutCount();
 
+function setupDonutButton() {
+  const donutButton = document.querySelector(".donut");
+  donutButton.addEventListener("click", () => {
+    donutClicker.clickDonut();
+    updateDonutCount();
+  });
+}
 
-  donut.addEventListener("click", () => {
-    donutClicker.addDonut();
-  });
-  
-  buyAutoClickerButton.addEventListener("click", ()=> {
-    donutClicker.buyAutoClicker();
-  });
-  
-  buyDonutMultiplierButton.addEventListener("click",  ()=> {
-    donutClicker.buyDonutMultiplier();
-  });
+function updateDonutCount() {
+  const donutCountSpan = document.querySelector(".donut-count");
+  donutCountSpan.innerText = donutClicker.getClickCount();
+}
+
+// buyAutoClickerButton.addEventListener("click", () => {
+//   donutClicker.buyAutoClicker();
+// });
+
+// buyDonutMultiplierButton.addEventListener("click", () => {
+//   donutClicker.buyDonutMultiplier();
+// });
