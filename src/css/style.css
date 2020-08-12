@@ -1,6 +1,29 @@
+body {
+  background-color: pink;
+  text-align: center;
+  padding: 100px 0;
+}
 
+.container {
+  box-sizing: border-box;
+  position: relative;
+  background-color: powderblue;
+  width: 50%;
+  height: 70%;
+  margin: auto;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+button {
+  background-color: pink;
+}
 
 img {
-    width: 400px;
-    height: auto;
+  width: 400px;
+  height: auto;
+}
+
+img:active {
+  transform: scale(1.1);
 }

@@ -1,5 +1,6 @@
 const donutClicker = new DonutMaker();
 runGame();
+runAutoClicker();
 
 function runGame() {
   setupAllButtons();
@@ -45,7 +46,7 @@ function setupResetButton() {
   const resetButton = document.querySelector(".reset");
   resetButton.addEventListener("click", () => {
     location.reload();
-  })
+  });
 }
 
 function updateAllCounts() {
@@ -77,18 +78,31 @@ function updateDonutMultiplierCount() {
 }
 
 function updateDonutMultiplierValue() {
-  const donutMultiplierValueSpan = document.querySelector(".donut-multiplier-value");
-  donutMultiplierValueSpan.innerText = donutClicker.calculateDonutMultiplierValue().toFixed(3);
+  const donutMultiplierValueSpan = document.querySelector(
+    ".donut-multiplier-value"
+  );
+  donutMultiplierValueSpan.innerText = donutClicker
+    .calculateDonutMultiplierValue()
+    .toFixed(1);
 }
 
 function updateAutoClickerPrice() {
   const autoClickerPriceSpan = document.querySelector(".auto-clicker-price");
-  autoClickerPriceSpan.innerText = donutClicker.getAutoClickerCost().toFixed(3);
+  autoClickerPriceSpan.innerText = donutClicker.getAutoClickerCost().toFixed(1);
 }
 
 function updateDonutMultiplierPrice() {
   const donutMultiplierPriceSpan = document.querySelector(".multiplier-price");
-  donutMultiplierPriceSpan.innerText = donutClicker.getDonutMultiplierCost().toFixed(3);
+  donutMultiplierPriceSpan.innerText = donutClicker
+    .getDonutMultiplierCost()
+    .toFixed(1);
+}
+
+function runAutoClicker() {
+  window.setInterval(() => {
+    donutClicker.activateAutoClickers();
+    updateAllCounts();
+  }, 1000);
 }
 
 function checkDonutFundsToBuyAutoClicker() {
