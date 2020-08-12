@@ -2,6 +2,7 @@ const donutClicker = new DonutMaker();
 setupDonutButton();
 updateDonutCount();
 checkDonutFundsToBuyAutoClicker();
+checkDonutFundsToBuyDonutMultiplier();
 
 function setupDonutButton() {
   const donutButton = document.querySelector(".donut");
@@ -9,6 +10,7 @@ function setupDonutButton() {
     donutClicker.clickDonut();
     updateDonutCount();
     checkDonutFundsToBuyAutoClicker();
+    checkDonutFundsToBuyDonutMultiplier();
   });
 }
 
@@ -23,6 +25,15 @@ function checkDonutFundsToBuyAutoClicker() {
     autoClickerButton.disabled = true;
   } else {
     autoClickerButton.disabled = false;
+  }
+}
+
+function checkDonutFundsToBuyDonutMultiplier() {
+  const DonutMultiplierButton = document.querySelector(".buyDonutMultiplierButton");
+  if(donutClicker.hasInsufficientDonutsToBuyDonutMultiplier()) {
+    DonutMultiplierButton.disabled = true;
+  } else {
+    DonutMultiplierButton.disabled = false;
   }
 }
 
