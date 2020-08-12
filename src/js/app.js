@@ -44,6 +44,7 @@ function updateAllCounts() {
   updateDonutCount();
   updateAutoClickerCount();
   updateDonutMultiplierCount();
+  updateDonutMultiplierValue();
 }
 
 function updateDonutCount() {
@@ -63,6 +64,11 @@ function updateDonutMultiplierCount() {
     ".donut-multiplier-count"
   );
   donutMultiplierCountSpan.innerText = donutClicker.getDonutMultiplierCount();
+}
+
+function updateDonutMultiplierValue() {
+  const donutMultiplierValueSpan = document.querySelector(".donut-multiplier-value");
+  donutMultiplierValueSpan.innerText = donutClicker.calculateDonutMultiplierValue().toFixed(3);
 }
 
 function checkDonutFundsToBuyAutoClicker() {
