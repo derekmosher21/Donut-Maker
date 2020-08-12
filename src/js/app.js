@@ -1,35 +1,23 @@
 const donutClicker = new DonutMaker();
-setupDonutButton();
-setupAllButtons();
-updateAllCounts();
-checkDonutFundsToBuyAutoClicker();
-checkDonutFundsToBuyDonutMultiplier();
+runGame();
+
+function runGame() {
+  setupAllButtons();
+  updateAllCounts();
+}
+
+function setupAllButtons() {
+  setupDonutButton();
+  setupAutoClickerButton();
+  setupDonutMultiplierButton();
+}
 
 function setupDonutButton() {
   const donutButton = document.querySelector(".donut");
   donutButton.addEventListener("click", () => {
     donutClicker.clickDonut();
-    setupAllButtons();
     updateAllCounts();
-    checkDonutFundsToBuyAutoClicker();
-    checkDonutFundsToBuyDonutMultiplier();
   });
-}
-
-function updateDonutCount() {
-  const donutCountSpan = document.querySelector(".donut-count");
-  donutCountSpan.innerText = donutClicker.getClickCount();
-}
-
-function updateAllCounts() {
-  updateDonutCount();
-  updateAutoClickerCount();
-  updateDonutMultiplierCount();
-}
-
-function setupAllButtons() {
-  setupAutoClickerButton();
-  setupDonutMultiplierButton();
 }
 
 function setupAutoClickerButton() {
@@ -37,6 +25,7 @@ function setupAutoClickerButton() {
   autoClickerButton.addEventListener("click", () => {
     donutClicker.buyAutoClicker();
     updateAllCounts();
+    checkDonutFundsToBuyAutoClicker();
   });
 }
 
@@ -47,7 +36,33 @@ function setupDonutMultiplierButton() {
   DonutMultiplierButton.addEventListener("click", () => {
     donutClicker.buyDonutMultiplier();
     updateAllCounts();
-  } )
+    checkDonutFundsToBuyDonutMultiplier();
+  });
+}
+
+function updateAllCounts() {
+  updateDonutCount();
+  updateAutoClickerCount();
+  updateDonutMultiplierCount();
+}
+
+function updateDonutCount() {
+  const donutCountSpan = document.querySelector(".donut-count");
+  donutCountSpan.innerText = donutClicker.getClickCount();
+  checkDonutFundsToBuyAutoClicker();
+  checkDonutFundsToBuyDonutMultiplier();
+}
+
+function updateAutoClickerCount() {
+  const autoClickerCountSpan = document.querySelector(".auto-clicker-count");
+  autoClickerCountSpan.innerText = donutClicker.getAutoClickerCount();
+}
+
+function updateDonutMultiplierCount() {
+  const donutMultiplierCountSpan = document.querySelector(
+    ".donut-multiplier-count"
+  );
+  donutMultiplierCountSpan.innerText = donutClicker.getDonutMultiplierCount();
 }
 
 function checkDonutFundsToBuyAutoClicker() {
@@ -69,23 +84,3 @@ function checkDonutFundsToBuyDonutMultiplier() {
     DonutMultiplierButton.disabled = false;
   }
 }
-
-function updateAutoClickerCount() {
-  const autoClickerCountSpan = document.querySelector(".auto-clicker-count");
-  autoClickerCountSpan.innerText = donutClicker.getAutoClickerCount();
-}
-
-function updateDonutMultiplierCount() {
-  const donutMultiplierCountSpan = document.querySelector(
-    ".donut-multiplier-count"
-  );
-  donutMultiplierCountSpan.innerText = donutClicker.getDonutMultiplierCount();
-}
-
-// buyAutoClickerButton.addEventListener("click", () => {
-//   donutClicker.buyAutoClicker();
-// });
-
-// buyDonutMultiplierButton.addEventListener("click", () => {
-//   donutClicker.buyDonutMultiplier();
-// });
