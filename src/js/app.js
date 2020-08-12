@@ -10,6 +10,7 @@ function setupAllButtons() {
   setupDonutButton();
   setupAutoClickerButton();
   setupDonutMultiplierButton();
+  setupResetButton();
 }
 
 function setupDonutButton() {
@@ -40,11 +41,20 @@ function setupDonutMultiplierButton() {
   });
 }
 
+function setupResetButton() {
+  const resetButton = document.querySelector(".reset");
+  resetButton.addEventListener("click", () => {
+    location.reload();
+  })
+}
+
 function updateAllCounts() {
   updateDonutCount();
   updateAutoClickerCount();
   updateDonutMultiplierCount();
   updateDonutMultiplierValue();
+  updateAutoClickerPrice();
+  updateDonutMultiplierPrice();
 }
 
 function updateDonutCount() {
@@ -69,6 +79,16 @@ function updateDonutMultiplierCount() {
 function updateDonutMultiplierValue() {
   const donutMultiplierValueSpan = document.querySelector(".donut-multiplier-value");
   donutMultiplierValueSpan.innerText = donutClicker.calculateDonutMultiplierValue().toFixed(3);
+}
+
+function updateAutoClickerPrice() {
+  const autoClickerPriceSpan = document.querySelector(".auto-clicker-price");
+  autoClickerPriceSpan.innerText = donutClicker.getAutoClickerCost().toFixed(3);
+}
+
+function updateDonutMultiplierPrice() {
+  const donutMultiplierPriceSpan = document.querySelector(".multiplier-price");
+  donutMultiplierPriceSpan.innerText = donutClicker.getDonutMultiplierCost().toFixed(3);
 }
 
 function checkDonutFundsToBuyAutoClicker() {

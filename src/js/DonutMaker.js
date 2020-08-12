@@ -4,7 +4,7 @@ class DonutMaker {
     this.donutMultiplierCount = 0;
     this.donutMultiplierCost = 10;
     this.autoClickerCount = 0;
-    this.autoClickerCost = 100;
+    this.autoClickerCost = 50;
   }
 
   clickDonut() {
@@ -33,8 +33,8 @@ class DonutMaker {
 
   buyAutoClicker() {
     this.autoClickerCount += 1;
-    this.subtractAutoClickerCostFromDonutCount;
-    this.increaseAutoClickerCost;
+    this.subtractAutoClickerCostFromDonutCount();
+    this.increaseAutoClickerCost();
   }
 
   subtractAutoClickerCostFromDonutCount() {
