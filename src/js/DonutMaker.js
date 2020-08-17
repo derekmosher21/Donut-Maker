@@ -2,9 +2,9 @@ class DonutMaker {
   constructor() {
     this.donutCount = 0;
     this.donutMultiplierCount = 0;
-    this.donutMultiplierCost = 10;
+    this.donutMultiplierCost = 25;
     this.autoClickerCount = 0;
-    this.autoClickerCost = 50;
+    this.autoClickerCost = 100;
   }
 
   clickDonut() {

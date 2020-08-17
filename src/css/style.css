@@ -8,6 +8,8 @@ body {
   box-sizing: border-box;
   position: relative;
   background-color: powderblue;
+  border-style: solid;
+  border-color: black;
   width: 50%;
   height: 70%;
   margin: auto;
